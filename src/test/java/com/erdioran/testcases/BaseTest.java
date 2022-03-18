@@ -30,8 +30,9 @@ public class BaseTest {
     private static final Logger LOGGER = LogManager.getLogger(BaseTest.class);
     static AppiumDriver<MobileElement> driver = (AppiumDriver<MobileElement>) getDriver();
 
+
     @BeforeMethod(alwaysRun = true)
-    public void beforeMethod(Method method, ITestResult result, ITestContext context) throws MalformedURLException, InterruptedException, ExecutionException, TimeoutException {
+    public void beforeMethod(Method method, ITestResult result, ITestContext context) throws MalformedURLException {
 
 
         Driver.initDriver();
@@ -57,6 +58,7 @@ public class BaseTest {
     @AfterTest(alwaysRun = true)
     public void tearDownTest(){
 
+        terminateApp(appPackegeName);
     }
 
 

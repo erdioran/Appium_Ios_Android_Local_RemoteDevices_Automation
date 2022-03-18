@@ -21,7 +21,7 @@ public class LocalDeviceAndroid implements  IDriver{
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         capabilities.setCapability(PLATFORM_NAME, MobilePlatform.ANDROID);
-        capabilities.setCapability(DEVICE_NAME, "emulator-5554");
+        capabilities.setCapability(DEVICE_NAME, "e82d9c6b");
         return new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), capabilities);
     }
 }

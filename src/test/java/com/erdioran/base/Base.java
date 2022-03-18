@@ -1,4 +1,5 @@
 package com.erdioran.base;
+import com.erdioran.objectRepository.appOR;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
@@ -20,15 +21,15 @@ public class Base {
 
     static AppiumDriver<MobileElement> driver = (AppiumDriver<MobileElement>) getDriver();
 
-
     public static void click(MobileElement mobileElement) {
         mobileElement.click();
     }
 
+
     public static void touch(MobileElement mobileElement) {
         new TouchAction(driver)
                 .tap(element(mobileElement))
-                .waitAction(waitOptions(ofMillis(250))).perform();
+                .waitAction(waitOptions(ofMillis(1500))).perform();
     }
 
     public static void tap(MobileElement mobileElement) {
@@ -36,10 +37,17 @@ public class Base {
                 .tap(element(mobileElement)).perform();
     }
 
-    public static void touchLocation(int xPoint, int yPoint) {
-        TouchAction touchAction = new TouchAction(driver);
-        touchAction.tap(point(xPoint, yPoint)).perform();
-    ;
+    public static void touchByPercentages(double xAxis, double yAxis) {
+        Dimension size = driver.manage().window().getSize();
+        int x = (int) (size.width * xAxis);
+        int y = (int) (size.height * yAxis);
+
+        new TouchAction(driver)
+                .press(point(x, y))
+                .waitAction(waitOptions(ofMillis(500)))
+                .release().perform();
+
+
     }
 
     public static void sendKeys(String text) {
@@ -80,6 +88,53 @@ public class Base {
     public static void waitElement(MobileElement mobileElement) {
         WebDriverWait wait = new WebDriverWait(driver, 15);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.valueOf(mobileElement))));
+    }
+
+
+    public static void horizontalSwipeByPercentagesIOS(double startPercentage, double endPercentage, double anchorPercentage) {
+        Dimension size = driver.manage().window().getSize();
+        int anchor = (int) (size.height * anchorPercentage);
+        int startPoint = (int) (size.width * startPercentage);
+        int endPoint = (int) (size.width * endPercentage);
+        new TouchAction(driver)
+                .press(point(startPoint,anchor))
+                .waitAction(waitOptions(ofMillis(1000)))
+                .moveTo(point(endPoint,anchor))
+                .release().perform();
+    }
+
+    public static void horizontalSwipeByPercentagesAndroid(double startPercentage, double endPercentage, double anchorPercentage) {
+        Dimension size = driver.manage().window().getSize();
+        int anchor = (int) (size.height * anchorPercentage);
+        int startPoint = (int) (size.width * startPercentage);
+        int endPoint = (int) (size.width * endPercentage);
+        new TouchAction(driver)
+                .press(point(startPoint,anchor))
+                .waitAction(waitOptions(ofMillis(1000)))
+                .moveTo(point(endPoint,anchor))
+                .release().perform();
+    }
+
+    public static void verticalSwipeByPercentagesAndroid(double startPercentage, double endPercentage, double anchorPercentage) {
+        Dimension size = driver.manage().window().getSize();
+        int anchor = (int) (size.width * anchorPercentage);
+        int startPoint = (int) (size.height * startPercentage);
+        int endPoint = (int) (size.height * endPercentage);
+        new TouchAction(driver)
+                .press(point(anchor, startPoint))
+                .waitAction(waitOptions(ofMillis(1000)))
+                .moveTo(point(anchor, endPoint))
+                .release().perform();
+    }
+
+
+    public static void scrollableAreasRightButtonWithPercentage (MobileElement startElement) {
+        Dimension size = driver.manage().window().getSize();
+        int xRight = (int) (size.width * 0.9146);
+        int middleY = startElement.getLocation().getY() + (startElement.getSize().getHeight() / 1);
+        new TouchAction(driver)
+                .tap(point(xRight, middleY))
+                .release().perform();
     }
 
 
