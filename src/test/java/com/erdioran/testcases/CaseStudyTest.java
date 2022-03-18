@@ -21,6 +21,7 @@ import static com.erdioran.base.Base.click;
 import static com.erdioran.base.Base.horizontalSwipeByPercentagesIOS;
 import static com.erdioran.base.Base.horizontalSwipeByPercentagesAndroid;
 import static com.erdioran.base.Base.verticalSwipeByPercentagesAndroid;
+import static com.erdioran.base.Base.waitUntil;
 import static com.erdioran.driver.DriverManager.getDriver;
 import static com.erdioran.objectRepository.appOR.*;
 import static com.erdioran.objectRepository.appOR.location;
@@ -50,7 +51,7 @@ import static com.erdioran.objectRepository.appOR.myFavourites;
 import static com.erdioran.objectRepository.appOR.favouritestListProductImage;
 import static com.erdioran.objectRepository.appOR.tabHomePage;
 import static com.erdioran.objectRepository.appOR.logOutButton;
-
+import static com.erdioran.objectRepository.appOR.yarinKapindaLocationView;
 
 import static com.erdioran.objectRepository.otherOR.userMail;
 import static com.erdioran.objectRepository.otherOR.password;
@@ -78,86 +79,83 @@ public class CaseStudyTest extends BaseTest {
 
         Thread.sleep(1000);
         openApp(appPackegeName);
-        Thread.sleep(3000);
+
+        // CLICK LOCATION
+        waitUntil((AppiumDriver) getDriver(),location,10);
         click(location);
-        Thread.sleep(2000);
 
         // SELECT CITY
+        waitUntil((AppiumDriver) getDriver(),cityPicker,5);
         click(cityPicker);
-        Thread.sleep(1000);
+
 
         if (modevalue.equals("LOCALIOS")) {
             pickerEls = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(pickers));
-            Thread.sleep(1000);
             pickerEls.get(0).sendKeys(city);
-            Thread.sleep(1000);
         }else if(modevalue.equals("LOCALANDROID")){
+            waitUntil((AppiumDriver) getDriver(),adana,5);
             click(adana);
-            Thread.sleep(2000);
         }
 
         // SELECT DISTRICT
+        waitUntil((AppiumDriver) getDriver(),districtPicker,5);
         click(districtPicker);
-        Thread.sleep(1000);
 
         if (modevalue.equals("LOCALIOS")) {
             pickerEls = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(pickers));
-            Thread.sleep(1000);
             pickerEls.get(0).sendKeys(district);
-            Thread.sleep(1000);
         }else if(modevalue.equals("LOCALANDROID")){
+            waitUntil((AppiumDriver) getDriver(),ceyhan,5);
             click(ceyhan);
-            Thread.sleep(2000);
         }
 
 
         // SELECT NEIGHBORHOOD
+        waitUntil((AppiumDriver) getDriver(),neighborhoodPicker,5);
         click(neighborhoodPicker);
         Thread.sleep(1000);
 
         if (modevalue.equals("LOCALIOS")) {
             pickerEls = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(pickers));
-            Thread.sleep(1000);
             pickerEls.get(0).sendKeys(neighborhood);
-            Thread.sleep(1000);
         }else if(modevalue.equals("LOCALANDROID")){
+            waitUntil((AppiumDriver) getDriver(),adatepe,5);
             click(adatepe);
-            Thread.sleep(2000);
         }
+
 
         if (modevalue.equals("LOCALIOS")) {
+            waitUntil((AppiumDriver) getDriver(),pickerOK,5);
             click(pickerOK);
-            Thread.sleep(1000);
         }
 
+        waitUntil((AppiumDriver) getDriver(),locationSaveButton,5);
         click(locationSaveButton);
-        Thread.sleep(1000);
-
 
         // CHECK "Konumunuz kaydedildi"
         Assert.assertTrue(locationSaved.isDisplayed());
-        Thread.sleep(250);
 
+        waitUntil((AppiumDriver) getDriver(),locationSavedClose,5);
         click(locationSavedClose);
-        Thread.sleep(1000);
 
+        waitUntil((AppiumDriver) getDriver(),tabCategories,5);
         click(tabCategories);
-        Thread.sleep(1000);
 
+        waitUntil((AppiumDriver) getDriver(),category2,5);
         click(category2);
-        Thread.sleep(1000);
 
+        waitUntil((AppiumDriver) getDriver(),childCategory2,5);
         click(childCategory2);
-        Thread.sleep(3000);
 
         // CHECK "Yarın Kapıda Şehir"
 
-
         if (modevalue.equals("LOCALIOS")) {
+            waitUntil((AppiumDriver) getDriver(),yarinKapindaLocationView,5);
             Assert.assertTrue(yarinKapidaLocation.isDisplayed());
             Thread.sleep(1000);
         }else if(modevalue.equals("LOCALANDROID")){
             String a= "com.pozitron.hepsiburada:id/textViewLocation";
+            waitUntil((AppiumDriver) getDriver(),yarinKapindaLocationView,5);
             Assert.assertEquals(getDriver().findElement(MobileBy.id(a)).getText(),"Adana");
         }
 

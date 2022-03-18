@@ -104,6 +104,11 @@ public class appOR extends Base {
     @iOSXCUITFindBy(accessibility = "childcategoryitem_1")
     public static MobileElement childCategory2;
 
+    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/cardViewLocation")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]")
+    public static MobileElement yarinKapindaLocationView;
+
+
 
     /////
 

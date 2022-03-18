@@ -8,7 +8,7 @@
             <class name="com.erdioran.testcases.CaseStudyTest">
                 <methods>
 
-                    <include name="case2"/>
+                    <include name="case1"/>
                 </methods>
             </class>
         </classes>
