@@ -1,5 +1,6 @@
 package com.erdioran.testcases;
 
+import com.erdioran.base.Base;
 import com.erdioran.driver.Driver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -52,11 +53,13 @@ public class BaseTest {
             context.setAttribute("previousTestStatus", "passed");
         }
 
+        terminateApp(appPackegeName);
+
 
     }
 
     @AfterTest(alwaysRun = true)
-    public void tearDownTest(){
+    public void afterTestCloseApp(){
 
         terminateApp(appPackegeName);
     }

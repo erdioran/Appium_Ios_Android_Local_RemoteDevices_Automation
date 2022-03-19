@@ -6,6 +6,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
 import javax.xml.xpath.XPath;
@@ -32,7 +33,7 @@ public class appOR extends Base {
     public static MobileElement adana;
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.FrameLayout/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]/android.widget.TextView")
     public static MobileElement ceyhan;
-    @AndroidFindBy(xpath ="/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.FrameLayout/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.widget.FrameLayout/androidx.cardview.widget.CardView/android.view.ViewGroup/android.widget.FrameLayout/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[2]")
     public static MobileElement adatepe;
 
     //Home Page
@@ -41,14 +42,19 @@ public class appOR extends Base {
     @iOSXCUITFindBy(accessibility = "Konum")
     public static MobileElement location;
 
-    @AndroidFindBy(id = "Hesabım")
-    @iOSXCUITFindBy(iOSClassChain = "productImage1")
-    public static MobileElement myAccount;
-
-    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/dod_all")
+    @AndroidFindBy(id = "new UiScrollable(new UiSelector().scrollable(true))" +
+            ".scrollIntoView(new UiSelector().resourceIdMatches(\"//XCUIElementTypeButton[@name=\"Tümü \"]\"))")
     @iOSXCUITFindBy(id = "com.pozitron.hepsiburada:id/dod_all")
-    public static MobileElement superFiyatSuperTeklifTumu;
+    public static MobileElement locationa;
 
+
+    public static final By superFiyatSuperTeklifTumu = By.id("com.pozitron.hepsiburada:id/dod_all");
+    public static final By superFiyatSuperTeklifTumuIos = By.xpath("//XCUIElementTypeButton[@name=\"Tümü \"]");
+
+
+    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/account_icon")
+    @iOSXCUITFindBy(accessibility = "accountButton")
+    public static MobileElement myAccount;
 
     // Location
 
@@ -86,11 +92,11 @@ public class appOR extends Base {
 
 
     @AndroidFindBy(accessibility = "Kategorilerim")
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"Kategorilerim\"`]")
+    @iOSXCUITFindBy(accessibility = "Categories")
     public static MobileElement tabCategories;
 
     @AndroidFindBy(accessibility = "Anasayfam")
-    @iOSXCUITFindBy(iOSClassChain = "productImage1")
+    @iOSXCUITFindBy(accessibility = "Explore")
     public static MobileElement tabHomePage;
 
 
@@ -108,6 +114,9 @@ public class appOR extends Base {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]")
     public static MobileElement yarinKapindaLocationView;
 
+    @AndroidFindBy(id = "??")  ////////////
+    @iOSXCUITFindBy(accessibility = "sortButton")
+    public static MobileElement sortButton;
 
 
     /////
@@ -120,59 +129,78 @@ public class appOR extends Base {
 
     ///
 
-    @AndroidFindBy(xpath = "(//android.widget.ImageView[@content-desc=\"ürün fotoğrafı\"])[1]")
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]")
+    @AndroidFindBy(xpath = "//android.widget.ImageView[@content-desc='ürün fotoğrafı']")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeImage")
     public static MobileElement firstProduct;
 
 
-    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/productImage")
-    @iOSXCUITFindBy(iOSClassChain = "productImage1")
+    @AndroidFindBy(accessibility = "ürün fotoğrafı")
+    @iOSXCUITFindBy(accessibility = "backBuproductImage1tton")
     public static MobileElement productImage;
 
-    @AndroidFindBy(accessibility = "Geri")
-    @iOSXCUITFindBy(iOSClassChain = "productImage1")
+
+    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/leftIcon")
+    @iOSXCUITFindBy(accessibility = "backButton")
     public static MobileElement backButtonProduct;
 
-    @AndroidFindBy(accessibility = "favoriye ekle")
-    @iOSXCUITFindBy(iOSClassChain = "productImage1")
+
+    //public static final By productDetailShare = By.id("com.pozitron.hepsiburada:id/share");
+
+    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/share")
+    @iOSXCUITFindBy(accessibility = "shareButton")
+    public static MobileElement productDetailShare;
+
+    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/favourite")
+    @iOSXCUITFindBy(accessibility = "favoriteButton")
     public static MobileElement productDetailFavouriteIcon;
+
+    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/product_detail_favourites")
+    @iOSXCUITFindBy(accessibility = "favoriButton")
+    public static MobileElement productDetailFavouriteIcon2;
+
+    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/product_detail_add_to_cart")
+    @iOSXCUITFindBy(accessibility = "Sepete ekle")
+    public static MobileElement addToChart;
 
 
     // LOGIN PAGE
 
-    @AndroidFindBy(id = "txtUserName")
-    @iOSXCUITFindBy(iOSClassChain = "productImage1")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.EditText")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeTextField[`value == \"E-posta adresi veya telefon numarası\"`]")
     public static MobileElement mailEditText;
 
-
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.widget.EditText")
-    @iOSXCUITFindBy(iOSClassChain = "productImage1")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeSecureTextField[`value == \"Şifre\"`]")
     public static MobileElement passwordEditText;
 
-    @AndroidFindBy(id = "btnLogin")
-    @iOSXCUITFindBy(iOSClassChain = "productImage1")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.widget.Button")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"Giriş yap\"`]")
     public static MobileElement loginButton;
 
-    @AndroidFindBy(id = "btnEmailSelect")
-    @iOSXCUITFindBy(iOSClassChain = "productImage1")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.widget.Button")
+    @iOSXCUITFindBy(accessibility = "Giriş yap")
     public static MobileElement loginButton2;
 
     @AndroidFindBy(id = "android:id/button1")
-    @iOSXCUITFindBy(iOSClassChain = "productImage1")
+    @iOSXCUITFindBy(accessibility = "Tamam")
     public static MobileElement okButtonWelcome;
+
+    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/tvUserNameFull")
+    @iOSXCUITFindBy(accessibility = "??")
+    public static MobileElement accountPageUserName;
 
 
     @AndroidFindBy(accessibility = "account_menu_5")
-    @iOSXCUITFindBy(iOSClassChain = "productImage1")
+    @iOSXCUITFindBy(accessibility = "accountitemview_5")
     public static MobileElement myFavourites;
 
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"123\"]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Image")
-    @iOSXCUITFindBy(iOSClassChain = "productImage1")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[`label == \"Listem - hepsiburada\"`]/XCUIElementTypeOther[5]/XCUIElementTypeLink[1]/XCUIElementTypeLink[1]/XCUIElementTypeLink/XCUIElementTypeImage")
     public static MobileElement favouritestListProductImage;
 
     @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"account_menu_button_15\"]/android.view.ViewGroup/android.widget.Button")
-    @iOSXCUITFindBy(iOSClassChain = "productImage1")
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"Çıkış yap\"`]")
     public static MobileElement logOutButton;
 
 

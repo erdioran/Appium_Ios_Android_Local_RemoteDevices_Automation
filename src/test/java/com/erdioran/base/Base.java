@@ -1,7 +1,7 @@
 package com.erdioran.base;
-import com.erdioran.objectRepository.appOR;
+
+
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import org.openqa.selenium.By;
@@ -10,8 +10,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 import static com.erdioran.driver.DriverManager.getDriver;
 import static io.appium.java_client.touch.WaitOptions.waitOptions;
@@ -22,6 +20,17 @@ import static java.time.Duration.ofMillis;
 public class Base {
 
     static AppiumDriver<MobileElement> driver = (AppiumDriver<MobileElement>) getDriver();
+
+    public MobileElement findElement(By by) {
+        WebDriverWait appiumWait = new WebDriverWait(getDriver(), 10);
+        appiumWait.until(ExpectedConditions.presenceOfElementLocated(by));
+        return driver.findElement(by);
+    }
+
+    public void clickFindElement(By by) {
+        findElement(by).click();
+    }
+
 
     public static void click(MobileElement mobileElement) {
         mobileElement.click();
@@ -36,7 +45,19 @@ public class Base {
 
     public static void tap(MobileElement mobileElement) {
         new TouchAction(driver)
-                .tap(element(mobileElement)).perform();
+                .tap(element((WebElement) mobileElement)).perform();
+    }
+
+    public static void tapByPercentages(double xAxis, double yAxis) {
+        Dimension size = driver.manage().window().getSize();
+        int x = (int) (size.width * xAxis);
+        int y = (int) (size.height * yAxis);
+
+        new TouchAction(driver)
+                .tap(point(x, y))
+                .release().perform();
+
+
     }
 
     public static void touchByPercentages(double xAxis, double yAxis) {
@@ -144,6 +165,13 @@ public class Base {
         WebDriverWait wait = new WebDriverWait(lDriver,seconds);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
+
+
+    public static void appReset(){
+
+        driver.resetApp();
+    }
+
 
 }
 

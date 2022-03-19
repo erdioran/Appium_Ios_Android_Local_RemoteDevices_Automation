@@ -10,8 +10,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static io.appium.java_client.remote.MobileCapabilityType.AUTOMATION_NAME;
-import static io.appium.java_client.remote.MobileCapabilityType.DEVICE_NAME;
+import static io.appium.java_client.remote.AndroidMobileCapabilityType.APP_PACKAGE;
+import static io.appium.java_client.remote.MobileCapabilityType.*;
 import static org.openqa.selenium.remote.CapabilityType.PLATFORM_NAME;
 
 public class LocalDeviceAndroid implements  IDriver{
@@ -21,7 +21,8 @@ public class LocalDeviceAndroid implements  IDriver{
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(AUTOMATION_NAME, AutomationName.ANDROID_UIAUTOMATOR2);
         capabilities.setCapability(PLATFORM_NAME, MobilePlatform.ANDROID);
+        capabilities.setCapability(PLATFORM_VERSION, "11");
         capabilities.setCapability(DEVICE_NAME, "e82d9c6b");
-        return new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), capabilities);
+        return new AppiumDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
     }
 }
