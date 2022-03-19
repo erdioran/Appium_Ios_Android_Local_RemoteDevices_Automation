@@ -9,7 +9,6 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
-import javax.xml.xpath.XPath;
 
 public class appOR extends Base {
 
@@ -22,7 +21,6 @@ public class appOR extends Base {
     //App ID
 
     public static final String appPackegeName = "com.pozitron.hepsiburada";
-    public static final String appBundleId = "com.pozitron.hepsiburada";
 
     public static final String city = "İstanbul";
     public static final String district = "Kadıköy";
@@ -42,15 +40,7 @@ public class appOR extends Base {
     @iOSXCUITFindBy(accessibility = "Konum")
     public static MobileElement location;
 
-    @AndroidFindBy(id = "new UiScrollable(new UiSelector().scrollable(true))" +
-            ".scrollIntoView(new UiSelector().resourceIdMatches(\"//XCUIElementTypeButton[@name=\"Tümü \"]\"))")
-    @iOSXCUITFindBy(id = "com.pozitron.hepsiburada:id/dod_all")
-    public static MobileElement locationa;
-
-
     public static final By superFiyatSuperTeklifTumu = By.id("com.pozitron.hepsiburada:id/dod_all");
-    public static final By superFiyatSuperTeklifTumuIos = By.xpath("//XCUIElementTypeButton[@name=\"Tümü \"]");
-
 
     @AndroidFindBy(id = "com.pozitron.hepsiburada:id/account_icon")
     @iOSXCUITFindBy(accessibility = "accountButton")
@@ -95,11 +85,6 @@ public class appOR extends Base {
     @iOSXCUITFindBy(accessibility = "Categories")
     public static MobileElement tabCategories;
 
-    @AndroidFindBy(accessibility = "Anasayfam")
-    @iOSXCUITFindBy(accessibility = "Explore")
-    public static MobileElement tabHomePage;
-
-
     // Categories
 
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/androidx.cardview.widget.CardView[3]/android.view.ViewGroup")
@@ -143,24 +128,9 @@ public class appOR extends Base {
     @iOSXCUITFindBy(accessibility = "backButton")
     public static MobileElement backButtonProduct;
 
-
-    //public static final By productDetailShare = By.id("com.pozitron.hepsiburada:id/share");
-
-    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/share")
-    @iOSXCUITFindBy(accessibility = "shareButton")
-    public static MobileElement productDetailShare;
-
     @AndroidFindBy(id = "com.pozitron.hepsiburada:id/favourite")
     @iOSXCUITFindBy(accessibility = "favoriteButton")
     public static MobileElement productDetailFavouriteIcon;
-
-    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/product_detail_favourites")
-    @iOSXCUITFindBy(accessibility = "favoriButton")
-    public static MobileElement productDetailFavouriteIcon2;
-
-    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/product_detail_add_to_cart")
-    @iOSXCUITFindBy(accessibility = "Sepete ekle")
-    public static MobileElement addToChart;
 
 
     // LOGIN PAGE
@@ -176,10 +146,6 @@ public class appOR extends Base {
     @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.widget.Button")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"Giriş yap\"`]")
     public static MobileElement loginButton;
-
-    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.widget.ScrollView/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[2]/android.widget.Button")
-    @iOSXCUITFindBy(accessibility = "Giriş yap")
-    public static MobileElement loginButton2;
 
     @AndroidFindBy(id = "android:id/button1")
     @iOSXCUITFindBy(accessibility = "Tamam")
@@ -198,10 +164,5 @@ public class appOR extends Base {
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"123\"]/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.widget.Image")
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeOther[`label == \"Listem - hepsiburada\"`]/XCUIElementTypeOther[5]/XCUIElementTypeLink[1]/XCUIElementTypeLink[1]/XCUIElementTypeLink/XCUIElementTypeImage")
     public static MobileElement favouritestListProductImage;
-
-    @AndroidFindBy(xpath = "//android.view.ViewGroup[@content-desc=\"account_menu_button_15\"]/android.view.ViewGroup/android.widget.Button")
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label == \"Çıkış yap\"`]")
-    public static MobileElement logOutButton;
-
 
 }

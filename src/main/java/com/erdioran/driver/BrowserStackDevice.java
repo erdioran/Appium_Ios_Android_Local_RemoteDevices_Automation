@@ -12,18 +12,17 @@ public class BrowserStackDevice implements IDriver{
 
 
 
-    public static String userName = "erdioran2";
-    public static String accessKey = "EuJAGfxkaqEqvvKxeEwu";
+    public static String userName = "";  // username
+    public static String accessKey = "";  // accesskey
     @Override
     public AppiumDriver<MobileElement> getDriver () throws MalformedURLException {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        // HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
         capabilities.setCapability("device", "Samsung Galaxy S10");
         capabilities.setCapability("os_version", "9.0");
-        capabilities.setCapability("project", "Evam SDK");
-        capabilities.setCapability("build", "Evam SDK Test Automation");
-        capabilities.setCapability("name", "evam");
-        capabilities.setCapability("app", "bs://dc2c1df9a73df6e851aba2ef3541ee76b301fc73");
+        capabilities.setCapability("project", "Hepsiburada SDK");
+        capabilities.setCapability("build", "Hepsiburada Test Automation");
+        capabilities.setCapability("name", "hepsiburada");
+        capabilities.setCapability("app", "");  // APP BS id
 
         return new AppiumDriver<MobileElement>(new URL("https://" + userName + ":" + accessKey + "@hub-cloud.browserstack.com/wd/hub"), capabilities);
     }

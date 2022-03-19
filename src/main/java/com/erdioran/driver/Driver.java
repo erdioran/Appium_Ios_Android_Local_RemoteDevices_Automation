@@ -25,13 +25,4 @@ public class Driver {
         }
     }
 
-    public static void quitDriver(){
-        if(nonNull(DriverManager.getDriver())) {
-            DriverManager.getDriver().quit();
-            DriverManager.unload();
-        }
-
-    }
-
-
 }

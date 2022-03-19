@@ -7,6 +7,6 @@ import java.net.MalformedURLException;
 
 public interface IDriver {
 
-    public AppiumDriver<MobileElement> getDriver() throws MalformedURLException;
+    AppiumDriver<MobileElement> getDriver() throws MalformedURLException;
 
 }

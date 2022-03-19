@@ -22,8 +22,8 @@ public class LocalDeviceIos implements  IDriver{
         capabilities.setCapability(PLATFORM_NAME, MobilePlatform.IOS);
         capabilities.setCapability(PLATFORM_VERSION, "15.1");
         capabilities.setCapability(DEVICE_NAME, "ErdiPhone");
-        capabilities.setCapability(UDID, "00008030-001D44603AEB402E");
-        capabilities.setCapability("xcodeOrgId", "82R9D59J9D");
+        capabilities.setCapability(UDID, ""); // Device UDID ID
+        capabilities.setCapability("xcodeOrgId", "");  // XCODE Organization ID
         capabilities.setCapability("xcodeSigningId", "iPhone Developer");
         return new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), capabilities);
     }

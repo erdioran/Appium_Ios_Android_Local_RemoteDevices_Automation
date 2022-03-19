@@ -1,9 +1,11 @@
 package com.erdioran.testcases;
 
-import com.erdioran.base.Base;
+import com.aventstack.extentreports.ExtentTest;
 import com.erdioran.driver.Driver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.ThreadContext;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -16,9 +18,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Method;
 import java.net.MalformedURLException;
-import java.time.Duration;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.TimeoutException;
 
 import static com.erdioran.driver.DriverManager.getDriver;
 import static com.erdioran.base.Base.*;
@@ -35,6 +34,9 @@ public class BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void beforeMethod(Method method, ITestResult result, ITestContext context) throws MalformedURLException {
 
+        ThreadContext.put("testName", method.getName());
+        LOGGER.info("Executing test method : [{}] in class [{}]", result.getMethod().getMethodName(),
+                result.getTestClass().getName());
 
         Driver.initDriver();
 
@@ -48,11 +50,10 @@ public class BaseTest {
 
             LOGGER.error("Current test method failed");
             context.setAttribute("previousTestStatus", "failed");
-            // ExtentTestManager.getNode().fail("Test failed");
         } else {
             context.setAttribute("previousTestStatus", "passed");
         }
-
+        boolean isCleanUpTest = context.getName().contains("Clean");
         terminateApp(appPackegeName);
 
 
@@ -67,7 +68,7 @@ public class BaseTest {
 
 
     @AfterSuite(alwaysRun = true)
-    public void quitApp(){
+    public void resetApplicaton(){
         terminateApp(appPackegeName);
     }
 

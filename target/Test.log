@@ -1,2 +1,3 @@
-[00:21:27] [ERROR] [35m[][m [BaseTest.java:49] ==> Current test method failed
-[00:21:54] [ERROR] [35m[][m [BaseTest.java:49] ==> Current test method failed
+[02:05:50] [INFO ] [35m[case1][m [BaseTest.java:38] ==> Executing test method : [case1] in class [com.erdioran.testcases.CaseStudyTest]
+[02:06:20] [ERROR] [35m[case1][m [BaseTest.java:51] ==> Current test method failed
+[02:06:20] [INFO ] [35m[case2][m [BaseTest.java:38] ==> Executing test method : [case2] in class [com.erdioran.testcases.CaseStudyTest]
