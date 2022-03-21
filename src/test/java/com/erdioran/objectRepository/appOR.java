@@ -42,7 +42,7 @@ public class appOR extends Base {
 
     public static final By superFiyatSuperTeklifTumu = By.id("com.pozitron.hepsiburada:id/dod_all");
 
-    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/account_icon")
+    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/account_menu_button")
     @iOSXCUITFindBy(accessibility = "accountButton")
     public static MobileElement myAccount;
 
@@ -99,7 +99,7 @@ public class appOR extends Base {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[2]/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther[2]")
     public static MobileElement yarinKapindaLocationView;
 
-    @AndroidFindBy(id = "??")  ////////////
+    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/lyt_product_list_options_bar_sort")
     @iOSXCUITFindBy(accessibility = "sortButton")
     public static MobileElement sortButton;
 
@@ -118,20 +118,9 @@ public class appOR extends Base {
     @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeWindow/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell[1]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[1]/XCUIElementTypeOther/XCUIElementTypeCollectionView/XCUIElementTypeCell/XCUIElementTypeOther/XCUIElementTypeImage")
     public static MobileElement firstProduct;
 
-
-    @AndroidFindBy(accessibility = "ürün fotoğrafı")
-    @iOSXCUITFindBy(accessibility = "backBuproductImage1tton")
-    public static MobileElement productImage;
-
-
-    @AndroidFindBy(id = "com.pozitron.hepsiburada:id/leftIcon")
-    @iOSXCUITFindBy(accessibility = "backButton")
-    public static MobileElement backButtonProduct;
-
     @AndroidFindBy(id = "com.pozitron.hepsiburada:id/favourite")
     @iOSXCUITFindBy(accessibility = "favoriteButton")
     public static MobileElement productDetailFavouriteIcon;
-
 
     // LOGIN PAGE
 
@@ -156,8 +145,8 @@ public class appOR extends Base {
     public static MobileElement accountPageUserName;
 
 
-    @AndroidFindBy(accessibility = "account_menu_5")
-    @iOSXCUITFindBy(accessibility = "accountitemview_5")
+    @AndroidFindBy(accessibility = "account_menu_4")
+    @iOSXCUITFindBy(accessibility = "accountitemview_4")
     public static MobileElement myFavourites;
 
 

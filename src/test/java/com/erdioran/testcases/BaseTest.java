@@ -1,6 +1,6 @@
 package com.erdioran.testcases;
 
-import com.aventstack.extentreports.ExtentTest;
+
 import com.erdioran.driver.Driver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

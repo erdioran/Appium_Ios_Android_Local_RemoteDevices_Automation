@@ -3,6 +3,7 @@ package com.erdioran.driver;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.MobilePlatform;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -25,6 +26,6 @@ public class LocalDeviceIos implements  IDriver{
         capabilities.setCapability(UDID, ""); // Device UDID ID
         capabilities.setCapability("xcodeOrgId", "");  // XCODE Organization ID
         capabilities.setCapability("xcodeSigningId", "iPhone Developer");
-        return new AppiumDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), capabilities);
+        return new IOSDriver<MobileElement>(new URL("http://localhost:4723/wd/hub"), capabilities);
     }
 }

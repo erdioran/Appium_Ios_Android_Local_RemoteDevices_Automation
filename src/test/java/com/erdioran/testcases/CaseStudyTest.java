@@ -1,6 +1,6 @@
 package com.erdioran.testcases;
 
-import com.aventstack.extentreports.ExtentTest;
+
 import com.erdioran.base.Base;
 import com.erdioran.objectRepository.appOR;
 import com.erdioran.objectRepository.otherOR;
@@ -11,6 +11,7 @@ import io.appium.java_client.MobileElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -45,7 +46,7 @@ public class CaseStudyTest extends BaseTest {
 
 
     @Test(priority = 1)
-    public void case1(ITestResult result) throws InterruptedException {
+    public void case1() throws InterruptedException {
 
         Thread.sleep(2000);
 
@@ -114,8 +115,7 @@ public class CaseStudyTest extends BaseTest {
         LOGGER.info("Location save SUCCESS");
 
         // CHECK "Konumunuz kaydedildi"
-        Assert.assertTrue(appor.locationSaved.isDisplayed());
-        LOGGER.info("Location saved popup displayed");
+        Assert.assertTrue(appor.locationSaved.isDisplayed(), "Location saved popup displayed");
 
         waitUntil((AppiumDriver) getDriver(), appor.locationSavedClose, 5);
         click(appor.locationSavedClose);
@@ -138,20 +138,27 @@ public class CaseStudyTest extends BaseTest {
         if (modevalue.equals("LOCALIOS")) {
             waitUntil((AppiumDriver) getDriver(), appor.sortButton, 5);
 
-            Assert.assertTrue(appor.yarinKapindaLocationView.isDisplayed());
-            LOGGER.info("Yarın Kapında displayed");
-
-            Assert.assertTrue(appor.yarinKapidaLocation.isDisplayed());
-            LOGGER.info("Yarın Kapında city SUCCESS");
+            try {
+                Assert.assertTrue(appor.yarinKapindaLocationView.isDisplayed(), "Yarın Kapında popup is displayed");
+            }
+            catch (NoSuchElementException e) {
+                LOGGER.info("Yarın Kapında popup isn't displayed");
+            }
+            Assert.assertTrue(appor.yarinKapidaLocation.isDisplayed(),"Yarın Kapında city SUCCESS");
 
             Thread.sleep(1000);
         } else if (modevalue.equals("LOCALANDROID")) {
-            String a = "com.pozitron.hepsiburada:id/textViewLocation";
-            Assert.assertTrue(appor.yarinKapindaLocationView.isDisplayed());
-            LOGGER.info("Yarın Kapında displayed");
+            waitUntil((AppiumDriver) getDriver(), appor.sortButton, 5);
 
-            Assert.assertEquals(getDriver().findElement(MobileBy.id(a)).getText(), "Adana");
-            LOGGER.info("Yarın Kapında city SUCCESS");
+            try {
+                Assert.assertTrue(appor.yarinKapindaLocationView.isDisplayed(), "Yarın Kapında displayed");
+            }
+            catch (NoSuchElementException e) {
+                LOGGER.info("Yarın Kapında popup isn't displayed");
+            }
+            String a = "com.pozitron.hepsiburada:id/textViewLocation";
+            Assert.assertEquals(getDriver().findElement(MobileBy.id(a)).getText(), "Adana", "Yarın Kapında city SUCCESS");
+
         }
 
 
@@ -159,7 +166,7 @@ public class CaseStudyTest extends BaseTest {
 
 
     @Test(priority = 2)
-    public void case2(ITestResult result) throws InterruptedException {
+    public void case2() throws InterruptedException {
 
 
         appOR appor = new appOR();

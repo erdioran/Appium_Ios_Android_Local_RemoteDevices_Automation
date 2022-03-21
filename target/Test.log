@@ -1,3 +1,29 @@
-[02:05:50] [INFO ] [35m[case1][m [BaseTest.java:38] ==> Executing test method : [case1] in class [com.erdioran.testcases.CaseStudyTest]
-[02:06:20] [ERROR] [35m[case1][m [BaseTest.java:51] ==> Current test method failed
-[02:06:20] [INFO ] [35m[case2][m [BaseTest.java:38] ==> Executing test method : [case2] in class [com.erdioran.testcases.CaseStudyTest]
+[09:54:36] [INFO ] [35m[case1][m [BaseTest.java:38] ==> Executing test method : [case1] in class [com.erdioran.testcases.CaseStudyTest]
+[09:54:46] [INFO ] [35m[case1][m [CaseStudyTest.java:60] ==> Application open SUCCESS
+[09:54:49] [INFO ] [35m[case1][m [CaseStudyTest.java:65] ==> Location select click SUCCESS
+[09:54:52] [INFO ] [35m[case1][m [CaseStudyTest.java:79] ==> City select SUCCESS
+[09:54:55] [INFO ] [35m[case1][m [CaseStudyTest.java:92] ==> District select SUCCESS
+[09:54:58] [INFO ] [35m[case1][m [CaseStudyTest.java:106] ==> Neighborhood select SUCCESS
+[09:54:59] [INFO ] [35m[case1][m [CaseStudyTest.java:115] ==> Location save SUCCESS
+[09:55:00] [INFO ] [35m[case1][m [CaseStudyTest.java:122] ==> Location saved popup closed SUCCESS
+[09:55:02] [INFO ] [35m[case1][m [CaseStudyTest.java:126] ==> Categories open SUCCESS
+[09:55:04] [INFO ] [35m[case1][m [CaseStudyTest.java:130] ==> Select category SUCCESS
+[09:55:05] [INFO ] [35m[case1][m [CaseStudyTest.java:134] ==> Select sub category SUCCESS
+[09:55:08] [INFO ] [35m[case1][m [CaseStudyTest.java:157] ==> Yarın Kapında popup isn't displayed
+[09:55:08] [ERROR] [35m[case1][m [BaseTest.java:51] ==> Current test method failed
+[09:55:09] [INFO ] [35m[case2][m [BaseTest.java:38] ==> Executing test method : [case2] in class [com.erdioran.testcases.CaseStudyTest]
+[09:55:14] [INFO ] [35m[case2][m [CaseStudyTest.java:179] ==> Application open SUCCESS
+[09:55:16] [INFO ] [35m[case2][m [CaseStudyTest.java:182] ==> Super Fiyat Super Teklif click SUCCESS
+[09:55:17] [INFO ] [35m[case2][m [CaseStudyTest.java:186] ==> Product select SUCCESS
+[09:55:20] [INFO ] [35m[case2][m [CaseStudyTest.java:190] ==> Product image click SUCCESS
+[09:55:23] [INFO ] [35m[case2][m [CaseStudyTest.java:197] ==> Product image swipe SUCCESS
+[09:55:25] [INFO ] [35m[case2][m [CaseStudyTest.java:200] ==> Product favourite icon click SUCCESS
+[09:55:33] [INFO ] [35m[case2][m [CaseStudyTest.java:205] ==> Mail input SUCCESS
+[09:55:41] [INFO ] [35m[case2][m [CaseStudyTest.java:212] ==> Password input SUCCESS
+[09:55:47] [INFO ] [35m[case2][m [CaseStudyTest.java:222] ==> Login SUCCESS
+[09:55:50] [INFO ] [35m[case2][m [CaseStudyTest.java:225] ==> Close open app SUCCESS
+[09:55:50] [INFO ] [35m[case2][m [CaseStudyTest.java:228] ==> Open reopen app SUCCESS
+[09:55:54] [INFO ] [35m[case2][m [CaseStudyTest.java:231] ==> My Account open SUCCESS
+[09:55:55] [INFO ] [35m[case2][m [CaseStudyTest.java:235] ==> Check login user SUCCESS
+[09:55:55] [INFO ] [35m[case2][m [CaseStudyTest.java:238] ==> Favourites page open SUCCESS
+[09:55:59] [INFO ] [35m[case2][m [CaseStudyTest.java:242] ==> Check product favourite SUCCESS
