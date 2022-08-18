@@ -1,4 +1,4 @@
-<b> <h1> <p align="center" >   # Hepsiburada Mobile Atomation Tutorial # </h1> </b>  </p>
+<b> <h1> <p align="center" >   # Appium Mobile Atomation Tutorial # </h1> </b>  </p>
 
 
 <b> <h2><p align="center" > (Ios-Android-Remote Device)</h2> </b>  </p>
